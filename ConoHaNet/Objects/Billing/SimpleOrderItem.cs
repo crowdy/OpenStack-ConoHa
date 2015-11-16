@@ -5,7 +5,7 @@
     using Providers;
 
     /// <summary>
-    /// This class models the JSON representation of an order item resource in the <see cref="IMerlionProvider"/>.
+    /// This class models the JSON representation of an order item resource in the <see cref="IAccountServiceProvider"/>.
     /// </summary>
     /// <seealso href="https://www.google.co.jp/search?q=openstack+">Alarms</seealso>
     /// <threadsafety static="true" instance="false"/>

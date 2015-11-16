@@ -8,81 +8,81 @@
     public partial class OpenStackMember : IOpenStackMember
     {
 
-        private CloudMerlionProvider _MerlionProvider = null;
+        private CloudAccountServiceProvider _AccountServiceProvider = null;
 
         /// <inheritdoc/>
-        public CloudMerlionProvider MerlionProvider
+        public CloudAccountServiceProvider AccountServiceProvider
         {
             get
             {
-                if (_MerlionProvider == null)
+                if (_AccountServiceProvider == null)
                 {
-                    _MerlionProvider = new CloudMerlionProvider(this.Identity, this.DefaultRegion, this.IdentityProvider, null);
-                    Trace.WriteLine("CloudMerlionProvider created.");
+                    _AccountServiceProvider = new CloudAccountServiceProvider(this.Identity, this.DefaultRegion, this.IdentityProvider, null);
+                    Trace.WriteLine("CloudAccountServiceProvider created.");
                 }
 
-                return _MerlionProvider;
+                return _AccountServiceProvider;
             }
         }
 
         /// <inheritdoc/>
         public IEnumerable<SimpleOrderItem> ListOrderItems()
         {
-            return MerlionProvider.ListOrderItems(Identity);
+            return AccountServiceProvider.ListOrderItems(Identity);
         }
 
         /// <inheritdoc/>
         public OrderItem GetOrderItem(int itemid)
         {
-            return MerlionProvider.GetOrderItem(itemid, Identity);
+            return AccountServiceProvider.GetOrderItem(itemid, Identity);
         }
 
         /// <inheritdoc/>
         public IEnumerable<ProdctBase> ListProducts()
         {
-            return MerlionProvider.ListProducts(Identity);
+            return AccountServiceProvider.ListProducts(Identity);
         }
 
         /// <inheritdoc/>
         public IEnumerable<SimplePayment> ListPaymentHistory()
         {
-            return MerlionProvider.ListPaymentHistory(Identity);
+            return AccountServiceProvider.ListPaymentHistory(Identity);
         }
 
         /// <inheritdoc/>
         public PaymentSummary GetPaymentSummary()
         {
-            return MerlionProvider.GetPaymentSummary(Identity);
+            return AccountServiceProvider.GetPaymentSummary(Identity);
         }
 
         /// <inheritdoc/>
         public IEnumerable<BillingInvoice> ListBillingInvoices(int offset = 0, int limit = 1000)
         {
-            return MerlionProvider.ListBillingInvoices(offset, limit, Identity);
+            return AccountServiceProvider.ListBillingInvoices(offset, limit, Identity);
         }
 
         /// <inheritdoc/>
         public BillingInvoice GetBillingInvoice(int invoiceId)
         {
-            return MerlionProvider.GetBillingInvoice(invoiceId, Identity);
+            return AccountServiceProvider.GetBillingInvoice(invoiceId, Identity);
         }
 
         /// <inheritdoc/>
         public IEnumerable<Notification> ListNotifications(string lang = "en", int offset = 0, int limit = 1000)
         {
-            return MerlionProvider.ListNotifications(lang, offset, limit, Identity);
+            return AccountServiceProvider.ListNotifications(lang, offset, limit, Identity);
         }
 
         /// <inheritdoc/>
         public Notification GetNotification(int notificationCode, string lang = "en")
         {
-            return MerlionProvider.GetNotification(notificationCode, lang, Identity);
+            return AccountServiceProvider.GetNotification(notificationCode, lang, Identity);
         }
 
         /// <inheritdoc/>
         public Notification SetNotification(int notificationCode, string status)
         {
-            return MerlionProvider.SetNotification(notificationCode, status, Identity);
+            return AccountServiceProvider.SetNotification(notificationCode, status, Identity);
         }
 
     }

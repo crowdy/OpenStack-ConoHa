@@ -57,9 +57,9 @@
         CloudBlockStorageProvider BlockStorageProvider { get; }
 
         /// <summary>
-        /// Gets the CloudMerlionProvider
+        /// Gets the CloudAccountServiceProvider
         /// </summary>
-        CloudMerlionProvider MerlionProvider { get; }
+        CloudAccountServiceProvider AccountServiceProvider { get; }
 
         /// <summary>
         /// Gets the CloudImagesProvider

@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoHaNet", "ConoHaNet\Cono
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoHaNet_Test", "ConoHaNet_Test\ConoHaNet_Test.csproj", "{D2B1891F-E890-4F9A-8F5C-6F4E44C6C4C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenVncConsole", "ConsoleApplication1\OpenVncConsole.csproj", "{B6862C9E-2D29-45F3-91DD-206AC4BA970D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{80BA906F-6291-4BA7-B46C-B452DE890AFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenVncConsole", "Samples\ConsoleApplication1\OpenVncConsole.csproj", "{B6862C9E-2D29-45F3-91DD-206AC4BA970D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,9 +12,9 @@
 
 
     /// <summary>
-    /// Represents a provider for the OpenStack Compute service.
+    /// Represents a provider for the OpenStack Account(Billing) service.
     /// </summary>
-    public interface IMerlionProvider
+    public interface IAccountServiceProvider
     {
         /// <summary>
         /// Gets a collection of order itmes
@@ -121,7 +121,7 @@
     /// <see cref="IComputeProvider"/>
     /// <inheritdoc />
     /// <threadsafety static="true" instance="false"/>
-    public class CloudMerlionProvider : ProviderBase<IMerlionProvider>, IMerlionProvider
+    public class CloudAccountServiceProvider : ProviderBase<IAccountServiceProvider>, IAccountServiceProvider
     {
         private readonly HttpStatusCode[] _validServerActionResponseCode = new[] { HttpStatusCode.OK, HttpStatusCode.Accepted, HttpStatusCode.NonAuthoritativeInformation, HttpStatusCode.NoContent };
 
@@ -132,7 +132,7 @@
         /// no default identity or region, and the default identity provider and REST
         /// service implementation.
         /// </summary>
-        public CloudMerlionProvider()
+        public CloudAccountServiceProvider()
             : this(null, null, null, null)
         { }
 
@@ -142,7 +142,7 @@
         /// provider and REST service implementation.
         /// </summary>
         /// <param name="identity">The default identity to use for calls that do not explicitly specify an identity. If this value is <see langword="null"/>, no default identity is available so all calls must specify an explicit identity.</param>
-        public CloudMerlionProvider(CloudIdentity identity)
+        public CloudAccountServiceProvider(CloudIdentity identity)
             : this(identity, null, null, null)
         { }
 
@@ -152,7 +152,7 @@
         /// REST service implementation.
         /// </summary>
         /// <param name="restService">The implementation of <see cref="IRestService"/> to use for executing REST requests. If this value is <see langword="null"/>, the provider will use a new instance of <see cref="JsonRestServices"/>.</param>
-        public CloudMerlionProvider(IRestService restService)
+        public CloudAccountServiceProvider(IRestService restService)
             : this(null, null, null, restService)
         { }
 
@@ -162,7 +162,7 @@
         /// REST service implementation.
         /// </summary>
         /// <param name="identityProvider">The identity provider to use for authenticating requests to this provider. If this value is <see langword="null"/>, a new instance of <see cref="CloudIdentityProvider"/> is created with no default identity.</param>
-        public CloudMerlionProvider(IIdentityProvider identityProvider)
+        public CloudAccountServiceProvider(IIdentityProvider identityProvider)
             : this(null, null, identityProvider, null)
         { }
 
@@ -173,7 +173,7 @@
         /// </summary>
         /// <param name="identity">The default identity to use for calls that do not explicitly specify an identity. If this value is <see langword="null"/>, no default identity is available so all calls must specify an explicit identity.</param>
         /// <param name="identityProvider">The identity provider to use for authenticating requests to this provider. If this value is <see langword="null"/>, a new instance of <see cref="CloudIdentityProvider"/> is created using <paramref name="identity"/> as the default identity.</param>
-        public CloudMerlionProvider(CloudIdentity identity, IIdentityProvider identityProvider)
+        public CloudAccountServiceProvider(CloudIdentity identity, IIdentityProvider identityProvider)
             : this(identity, null, identityProvider, null)
         { }
 
@@ -184,7 +184,7 @@
         /// </summary>
         /// <param name="identity">The default identity to use for calls that do not explicitly specify an identity. If this value is <see langword="null"/>, no default identity is available so all calls must specify an explicit identity.</param>
         /// <param name="restService">The implementation of <see cref="IRestService"/> to use for executing REST requests. If this value is <see langword="null"/>, the provider will use a new instance of <see cref="JsonRestServices"/>.</param>
-        public CloudMerlionProvider(CloudIdentity identity, IRestService restService)
+        public CloudAccountServiceProvider(CloudIdentity identity, IRestService restService)
             : this(identity, null, null, restService)
         { }
 
@@ -196,7 +196,7 @@
         /// <param name="identity">An instance of a <see cref="CloudIdentity"/> object. <remarks>If not provided, the user will be required to pass a <see cref="net.openstack.Core.Domain.CloudIdentity"/> object to each method individually.</remarks></param>
         /// <param name="identityProvider">An instance of an <see cref="IIdentityProvider"/> to override the default <see cref="CloudIdentity"/></param>
         /// <param name="restService">An instance of an <see cref="IRestService"/> to override the default <see cref="JsonRestServices"/></param>
-        public CloudMerlionProvider(CloudIdentity identity, IIdentityProvider identityProvider, IRestService restService)
+        public CloudAccountServiceProvider(CloudIdentity identity, IIdentityProvider identityProvider, IRestService restService)
             : this(identity, null, identityProvider, restService)
         { }
 
@@ -209,7 +209,7 @@
         /// <param name="defaultRegion">The default region to use for calls that do not explicitly specify a region. If this value is <see langword="null"/>, the default region for the user will be used; otherwise if the service uses region-specific endpoints all calls must specify an explicit region.</param>
         /// <param name="identityProvider">An instance of an <see cref="IIdentityProvider"/> to override the default <see cref="CloudIdentity"/></param>
         /// <param name="restService">An instance of an <see cref="IRestService"/> to override the default <see cref="JsonRestServices"/></param>
-        public CloudMerlionProvider(CloudIdentity identity, string defaultRegion, IIdentityProvider identityProvider, IRestService restService)
+        public CloudAccountServiceProvider(CloudIdentity identity, string defaultRegion, IIdentityProvider identityProvider, IRestService restService)
             : base(identity, defaultRegion, identityProvider, restService)
         { }
 

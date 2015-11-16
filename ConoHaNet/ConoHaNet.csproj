@@ -165,7 +165,7 @@
     <Compile Include="Objects\Mails\MailMessage.cs" />
     <Compile Include="Objects\Mails\MailService.cs" />
     <Compile Include="Objects\Mails\VirusCheck.cs" />
-    <Compile Include="Objects\Merlion\OrderItem.cs" />
+    <Compile Include="Objects\AccountService\OrderItem.cs" />
     <Compile Include="Objects\Metadata.cs" />
     <Compile Include="Objects\Networks\InterfaceAttachments.cs" />
     <Compile Include="Objects\Networks\Members.cs" />

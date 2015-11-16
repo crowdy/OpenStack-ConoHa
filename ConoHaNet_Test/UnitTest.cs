@@ -8,10 +8,10 @@ namespace ConoHaNet_Test
     [TestClass]
     public class UnitTest
     {
-        string username = "gncu26535051";
-        string password = "YourOwnPassword";
-        string tenantname = "gnct26535051";
-        string tenantid = "8b11719e50dd4dc4932a8930364f60c9";
+        string username = ""; // input your user name like gncu12345678
+        string password = ""; // input your own password
+        string tenantname = ""; // input your own tenant name like gnct12345678
+        string tenantid = ""; // input your tenant id, which is 32 characters
         string region = "tyo1";
 
         [TestMethod]

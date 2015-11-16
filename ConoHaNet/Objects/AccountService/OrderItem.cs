@@ -1,5 +1,5 @@
 ﻿#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-namespace ConoHaNet.Objects.Merlion
+namespace ConoHaNet.Objects.AccountService
 {
     using Newtonsoft.Json;
     using System;
