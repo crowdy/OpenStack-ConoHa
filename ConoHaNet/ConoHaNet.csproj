@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E528E745-4A14-48FB-B4E3-064310EBF052}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConoHaNet</RootNamespace>
+    <AssemblyName>ConoHaNet</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\ConoHaNet.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flurl, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1308302a96879dfb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Signed.1.0.8\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=0.6.2.0, Culture=neutral, PublicKeyToken=1308302a96879dfb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.Signed.0.6.2.2015062601\lib\net45\Flurl.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Marvin.JsonPatch, Version=0.7.0.0, Culture=neutral, PublicKeyToken=686c63b2d045ab44, processorArchitecture=MSIL">
+      <HintPath>..\packages\Marvin.JsonPatch.Signed.0.7.0\lib\portable-net40+win+wpa81\Marvin.JsonPatch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="openstacknet, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\openstack.net.1.5.0.1\lib\net45\openstacknet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rackspace, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rackspace.0.2.0\lib\net45\Rackspace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\SnapshotEnteredErrorStateException.cs" />
+    <Compile Include="Exceptions\VolumeEnteredErrorStateException.cs" />
+    <Compile Include="Extensions\ResponseExtensions.cs" />
+    <Compile Include="Objects\AuthenticationType.cs" />
+    <Compile Include="Objects\BulkDeletionException.cs" />
+    <Compile Include="Objects\CloudFilesValidator.cs" />
+    <Compile Include="Objects\CloudNetwork.cs" />
+    <Compile Include="Objects\ContainerCDN.cs" />
+    <Compile Include="Objects\ContainerObject.cs" />
+    <Compile Include="Objects\Mails\EmailForwarding.cs" />
+    <Compile Include="Extensions\DateTimeOffsetExtensions.cs" />
+    <Compile Include="IOpenStackMember.cs" />
+    <Compile Include="Objects\Billing\BillingInvoice.cs" />
+    <Compile Include="Objects\Billing\Notification.cs" />
+    <Compile Include="Objects\Billing\OrderItem.cs" />
+    <Compile Include="Objects\Billing\Payment.cs" />
+    <Compile Include="Objects\Billing\ProductBase.cs" />
+    <Compile Include="Objects\Billing\Products.cs" />
+    <Compile Include="Objects\Billing\SimpleOrderItem.cs" />
+    <Compile Include="Objects\Billing\SimplePayment.cs" />
+    <Compile Include="Objects\BlockStorage\BlockStorageVolumes.cs" />
+    <Compile Include="Objects\BlockStorage\SnapShots.cs" />
+    <Compile Include="Objects\Container.cs" />
+    <Compile Include="Objects\File\ArchiveFormat.cs" />
+    <Compile Include="Objects\File\BulkDeletionFailedObject.cs" />
+    <Compile Include="Objects\File\BulkDeletionResults.cs" />
+    <Compile Include="Objects\File\ExtractArchiveError.cs" />
+    <Compile Include="Objects\File\ExtractArchiveResponse.cs" />
+    <Compile Include="Objects\HttpStatusCodeParser.cs" />
+    <Compile Include="Objects\IBackoffPolicy.cs" />
+    <Compile Include="Objects\IEncodeDecodeProvider.cs" />
+    <Compile Include="Objects\ImageEnteredErrorStateException.cs" />
+    <Compile Include="Objects\ImageType.cs" />
+    <Compile Include="Objects\InvalidETagException.cs" />
+    <Compile Include="Objects\IObjectMapper.cs" />
+    <Compile Include="Objects\IObjectStorageMetadataProcessor.cs" />
+    <Compile Include="Objects\IPAddressDetailsConverter.cs" />
+    <Compile Include="Objects\IPAddressNoneIsNullSimpleConverter.cs" />
+    <Compile Include="Objects\IPAddressSimpleConverter.cs" />
+    <Compile Include="Objects\IStatusParser.cs" />
+    <Compile Include="Objects\Link.cs" />
+    <Compile Include="Objects\ObjectStore.cs" />
+    <Compile Include="Objects\Personality.cs" />
+    <Compile Include="Objects\PhysicalAddressSimpleConverter.cs" />
+    <Compile Include="Objects\PowerState.cs" />
+    <Compile Include="Objects\RebootType.cs" />
+    <Compile Include="Objects\ServerEnteredErrorStateException.cs" />
+    <Compile Include="Objects\SnapshotState.cs" />
+    <Compile Include="Objects\UserAccessCache.cs" />
+    <Compile Include="Objects\Volume.cs" />
+    <Compile Include="Objects\BlockStorage\VolumeState.cs" />
+    <Compile Include="Objects\CloudIdentity.cs" />
+    <Compile Include="Objects\Database\Database.cs" />
+    <Compile Include="Objects\Database\DatabaseServiceVersion.cs" />
+    <Compile Include="Objects\Database\DbBackup.cs" />
+    <Compile Include="Objects\Database\DbGrant.cs" />
+    <Compile Include="Objects\Database\DbQuota.cs" />
+    <Compile Include="Objects\Database\DbService.cs" />
+    <Compile Include="Objects\Database\DbUser.cs" />
+    <Compile Include="Objects\Dns\DnsRecord.cs" />
+    <Compile Include="Objects\Dns\DnsServer.cs" />
+    <Compile Include="Objects\Dns\DnsServiceVersion.cs" />
+    <Compile Include="Objects\Dns\Domain.cs" />
+    <Compile Include="Objects\Dns\Zone.cs" />
+    <Compile Include="Objects\Endpoint.cs" />
+    <Compile Include="Objects\ExtendedEndpoint.cs" />
+    <Compile Include="Objects\ExtensibleEnum.cs" />
+    <Compile Include="Objects\ExtensibleJsonObject.cs" />
+    <Compile Include="Objects\File\BulkAction.cs" />
+    <Compile Include="Objects\File\CloudFilesMetadataProcessor.cs" />
+    <Compile Include="Objects\Flavor.cs" />
+    <Compile Include="Objects\FlavorDetails.cs" />
+    <Compile Include="Objects\Identity\Auth.cs" />
+    <Compile Include="Objects\Identity\CloudIdentityWithProject.cs" />
+    <Compile Include="Objects\Identity\EndPoints.cs" />
+    <Compile Include="Objects\Identity\EndpointTemplate.cs" />
+    <Compile Include="Objects\Identity\EndpointTemplateId.cs" />
+    <Compile Include="Objects\Identity\Password.cs" />
+    <Compile Include="Objects\Identity\RegionEndpoint.cs" />
+    <Compile Include="Objects\Identity\Role.cs" />
+    <Compile Include="Objects\Identity\Roles.cs" />
+    <Compile Include="Objects\Tenant.cs" />
+    <Compile Include="Objects\Identity\Tenants.cs" />
+    <Compile Include="Objects\Identity\Users.cs" />
+    <Compile Include="Objects\Images\CloudImage.cs" />
+    <Compile Include="Objects\Images\CloudImageMember.cs" />
+    <Compile Include="Objects\Images\CloudImageTask.cs" />
+    <Compile Include="Objects\Images\CommonlyUsedImage.cs" />
+    <Compile Include="Objects\IPAddressList.cs" />
+    <Compile Include="Objects\Mails\EmailFilter.cs" />
+    <Compile Include="Objects\Mails\EmailWebHook.cs" />
+    <Compile Include="Objects\Mails\MailAddress.cs" />
+    <Compile Include="Objects\Mails\MailBoxQuota.cs" />
+    <Compile Include="Objects\Mails\MailDomain.cs" />
+    <Compile Include="Objects\Mails\MailMessage.cs" />
+    <Compile Include="Objects\Mails\MailService.cs" />
+    <Compile Include="Objects\Mails\VirusCheck.cs" />
+    <Compile Include="Objects\Merlion\OrderItem.cs" />
+    <Compile Include="Objects\Metadata.cs" />
+    <Compile Include="Objects\Networks\InterfaceAttachments.cs" />
+    <Compile Include="Objects\Networks\Members.cs" />
+    <Compile Include="Objects\Networks\Monitors.cs" />
+    <Compile Include="Objects\Networks\Networks.cs" />
+    <Compile Include="Objects\Networks\NetworkSecurity.cs" />
+    <Compile Include="Objects\Networks\Pools.cs" />
+    <Compile Include="Objects\Networks\PortBlocks.cs" />
+    <Compile Include="Objects\Networks\Ports.cs" />
+    <Compile Include="Objects\Networks\Subnets.cs" />
+    <Compile Include="Objects\Networks\Vips.cs" />
+    <Compile Include="Objects\NewUser.cs" />
+    <Compile Include="Objects\ProjectId.cs" />
+    <Compile Include="Objects\ProviderStateBase.cs" />
+    <Compile Include="Objects\Servers\Addresses.cs" />
+    <Compile Include="Objects\Servers\BackupService.cs" />
+    <Compile Include="Objects\Servers\Consoles.cs" />
+    <Compile Include="Objects\Servers\ConverterBase.cs" />
+    <Compile Include="Objects\Servers\DiskConfiguration.cs" />
+    <Compile Include="Objects\Servers\Flavors.cs" />
+    <Compile Include="Objects\Servers\ImageState.cs" />
+    <Compile Include="Objects\Servers\KeyPairs.cs" />
+    <Compile Include="Objects\Servers\Metadata.cs" />
+    <Compile Include="Objects\Servers\NewServer.cs" />
+    <Compile Include="Objects\ResourceIdentifier.cs" />
+    <Compile Include="Objects\Servers\Server.cs" />
+    <Compile Include="Objects\Servers\ServerActions.cs" />
+    <Compile Include="Objects\Servers\ServerAddresses.cs" />
+    <Compile Include="Objects\Servers\ServerBase.cs" />
+    <Compile Include="Objects\Servers\ServerImage.cs" />
+    <Compile Include="Objects\Servers\ServerResize.cs" />
+    <Compile Include="Objects\Servers\Servers.cs" />
+    <Compile Include="Objects\Servers\ServerSecurity.cs" />
+    <Compile Include="Objects\Servers\ServerState.cs" />
+    <Compile Include="Objects\Servers\ServerVolume.cs" />
+    <Compile Include="Objects\Servers\SimpleServer.cs" />
+    <Compile Include="Objects\Servers\SimpleServerImage.cs" />
+    <Compile Include="Objects\Snapshot.cs" />
+    <Compile Include="Objects\Servers\SnapshotState.cs" />
+    <Compile Include="Objects\Servers\TaskState.cs" />
+    <Compile Include="Objects\Servers\VirtualInterface.cs" />
+    <Compile Include="Objects\Servers\VirtualInterfaces.cs" />
+    <Compile Include="Objects\Servers\VirtualMachineState.cs" />
+    <Compile Include="Objects\ServiceCatalog.cs" />
+    <Compile Include="Objects\Status.cs" />
+    <Compile Include="Objects\User.cs" />
+    <Compile Include="Objects\UserCredential.cs" />
+    <Compile Include="Objects\Volumes\VolumeImages.cs" />
+    <Compile Include="Objects\VolumeType.cs" />
+    <Compile Include="OpenStackMember.cs" />
+    <Compile Include="OpenStackMember_Billing.cs" />
+    <Compile Include="OpenStackMember_BlockStorage.cs" />
+    <Compile Include="OpenStackMember_Compute.cs" />
+    <Compile Include="OpenStackMember_Database.cs" />
+    <Compile Include="OpenStackMember_Dns.cs" />
+    <Compile Include="OpenStackMember_File.cs" />
+    <Compile Include="OpenStackMember_Identity.cs" />
+    <Compile Include="OpenStackMember_Image.cs" />
+    <Compile Include="OpenStackMember_MailService.cs" />
+    <Compile Include="OpenStackMember_Network.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CloudBlockStorageProvider.cs" />
+    <Compile Include="Providers\CloudDatabaseProvider.cs" />
+    <Compile Include="Providers\CloudDnsProvider.cs" />
+    <Compile Include="Providers\CloudFilesProvider.cs" />
+    <Compile Include="Providers\CloudIdentityProvider.cs" />
+    <Compile Include="Providers\CloudImageProvider.cs" />
+    <Compile Include="Providers\CloudMailServiceProvider.cs" />
+    <Compile Include="Providers\CloudMerlionProvider.cs" />
+    <Compile Include="Providers\CloudNetworkProvider.cs" />
+    <Compile Include="Providers\CloudServerProvider.cs" />
+    <Compile Include="Providers\EncodeDecodeProvider.cs" />
+    <Compile Include="Providers\IBlockStorageProvider.cs" />
+    <Compile Include="Objects\IdentityToken.cs" />
+    <Compile Include="Providers\IComputeProvider.cs" />
+    <Compile Include="Providers\IExtendedCloudIdentityProvider.cs" />
+    <Compile Include="Providers\IIdentityProvider.cs" />
+    <Compile Include="Providers\IIdentityService.cs" />
+    <Compile Include="Providers\IImageProvider.cs" />
+    <Compile Include="Providers\INetworksProvider.cs" />
+    <Compile Include="Providers\IObjectStorageProvider.cs" />
+    <Compile Include="Providers\MailServiceVersion.cs" />
+    <Compile Include="Providers\ProviderBase.cs" />
+    <Compile Include="Providers\SpamFilter.cs" />
+    <Compile Include="Objects\UserAccess.cs" />
+    <Compile Include="Objects\UserAgentGenerator.cs" />
+    <Compile Include="Objects\UserDetails.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
