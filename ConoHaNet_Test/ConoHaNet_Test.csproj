@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest_Billing.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConoHaNet\ConoHaNet.csproj">

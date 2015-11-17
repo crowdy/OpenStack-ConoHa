@@ -2,6 +2,8 @@
 using ConoHaNet;
 using System.Diagnostics;
 using System.Linq;
+using ConoHaNet.Objects.Servers;
+using System;
 
 namespace ConoHaNet_Test
 {
@@ -29,7 +31,7 @@ namespace ConoHaNet_Test
             var activeServer = osm.ListServers(region: region).FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             if (activeServer != null)
             {
-                Console.WriteLine(String.Format("{0} is active.", activeServer.Id));
+                Trace.WriteLine(String.Format("{0} is active.", activeServer.Id));
                 var console = osm.GetVncConsole(activeServer.Id);
                 Console.WriteLine(console.Url);
                 System.Diagnostics.Process.Start(console.Url);
