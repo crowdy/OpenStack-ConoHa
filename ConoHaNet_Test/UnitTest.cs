@@ -26,11 +26,18 @@ namespace ConoHaNet_Test
             bLazyProviderSetting: false
             );
 
-            var servers = osm.ListServers(region: region);
-            Trace.WriteLine(servers.Count());
-
-            var console = osm.GetVncConsole("3531f17f-3ffa-4938-8b82-9f4f58ef2a0e");
-            Trace.WriteLine(console.Url);
+            var activeServer = osm.ListServers(region: region).FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            if (activeServer != null)
+            {
+                Console.WriteLine(String.Format("{0} is active.", activeServer.Id));
+                var console = osm.GetVncConsole(activeServer.Id);
+                Console.WriteLine(console.Url);
+                System.Diagnostics.Process.Start(console.Url);
+            }
+            else
+            {
+                Console.WriteLine("there is no active servers.");
+            }
         }
     }
 }
