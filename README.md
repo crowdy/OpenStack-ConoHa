@@ -7,4 +7,4 @@ OpenStack based DotNet SDK for ConoHa
 3. the usage of this SDK will be updated sooner or later.
 
 # Sample Web Application
-![sample web application](https://raw.github.com/crowdy/OpenStack-ConoHa/blob/master/ConoHaWebApplication/Content/Images/server.png)
+![sample web application](https://github.com/crowdy/OpenStack-ConoHa/blob/master/ConoHaWebApplication/Content/Images/server.png)
