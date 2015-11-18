@@ -31,7 +31,7 @@
         /// <param name="identity"></param>
         /// <returns></returns>
         /// <see href="https://www.conoha.jp/docs/account-order-item-detail-specified.html"/>
-        OrderItem GetOrderItem(int itemid, CloudIdentity identity = null);
+        OrderItem GetOrderItem(string itemid, CloudIdentity identity = null);
 
         /// <summary>
         /// Gets the list of product
@@ -233,9 +233,9 @@
 
         /// <inheritdoc />
         /// /v1/{tenant_id}/order-items/{item_id}
-        public OrderItem GetOrderItem(int itemid, CloudIdentity identity = null)
+        public OrderItem GetOrderItem(string itemid, CloudIdentity identity = null)
         {
-            if (itemid < 0)
+            if (String.IsNullOrEmpty(itemid))
                 throw new ArgumentOutOfRangeException("itemid");
 
             CheckIdentity(identity);

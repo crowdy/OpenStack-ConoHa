@@ -32,7 +32,7 @@
         }
 
         /// <inheritdoc/>
-        public OrderItem GetOrderItem(int itemid)
+        public OrderItem GetOrderItem(string itemid)
         {
             return AccountServiceProvider.GetOrderItem(itemid, Identity);
         }

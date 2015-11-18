@@ -27,7 +27,7 @@
         /// Gets the "item_id" property of this information.
         /// </summary>
         [JsonProperty("uu_id", Required = Required.Always)]
-        public int Id { get; internal set; }
+        public string Id { get; internal set; }
 
         /// <summary>
         /// Gets the "service_name" property of this information.

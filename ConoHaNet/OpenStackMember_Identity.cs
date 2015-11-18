@@ -76,13 +76,14 @@
         }
 
         /// <summary>
-        /// Gets EndPoints
+        /// Gets the list of endpoint
         /// </summary>
         /// <returns></returns>
         public IEnumerable<RegionEndpoint> ListEndpoints()
         {
             if (this.UA == null)
-                this.UA = IdentityProvider.GetInternalUserAccess(Identity);
+                this.UA = IdentityProvider.GetUserAccess(Identity);
+                // this.UA = IdentityProvider.GetInternalUserAccess(Identity);
 
             // region dictionary
             IDictionary<string, IDictionary<string, string>> regionEndpoints = new Dictionary<string, IDictionary<string, string>>();

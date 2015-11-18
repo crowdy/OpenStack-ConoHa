@@ -165,7 +165,7 @@
         /// <param name="itemid">an item id</param>
         /// <returns></returns>
         /// <see href="https://www.conoha.jp/docs/account-order-item-detail-specified.html"/>
-        OrderItem GetOrderItem(int itemid);
+        OrderItem GetOrderItem(string itemid);
 
         /// <summary>
         /// Gets the list of product

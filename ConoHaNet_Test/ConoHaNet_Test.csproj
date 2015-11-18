@@ -38,6 +38,26 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Flurl, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1308302a96879dfb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Signed.1.0.8\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=0.6.2.0, Culture=neutral, PublicKeyToken=1308302a96879dfb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.Signed.0.6.2.2015062601\lib\net45\Flurl.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Marvin.JsonPatch, Version=0.7.0.0, Culture=neutral, PublicKeyToken=686c63b2d045ab44, processorArchitecture=MSIL">
+      <HintPath>..\packages\Marvin.JsonPatch.Signed.0.7.0\lib\portable-net40+win+wpa81\Marvin.JsonPatch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="openstacknet, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\openstack.net.1.5.0.1\lib\net45\openstacknet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -56,15 +76,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="OpenstackMemberTests.cs" />
+    <Compile Include="OpenstackMember_BillingTests.cs" />
+    <Compile Include="OpenstackMember_ComputeTests.cs" />
+    <Compile Include="OpenstackMember_IdentityTests.cs" />
+    <Compile Include="OpenstackMember_ImageTests.cs" />
+    <Compile Include="OpenstackMember_NetworkTests.cs" />
+    <Compile Include="OpenstackMember_BlockStorageTests.cs" />
     <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest_Billing.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConoHaNet\ConoHaNet.csproj">
       <Project>{e528e745-4a14-48fb-b4e3-064310ebf052}</Project>
       <Name>ConoHaNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
