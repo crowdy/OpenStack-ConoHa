@@ -28,7 +28,7 @@ namespace ConoHaNet_Test
             bLazyProviderSetting: false
             );
 
-            var activeServer = osm.ListServers(region: region).FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            var activeServer = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             if (activeServer != null)
             {
                 Trace.WriteLine(String.Format("{0} is active.", activeServer.Id));

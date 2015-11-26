@@ -31,15 +31,15 @@
         #region "types"
 
         /// <inheritdoc/>
-        public IEnumerable<VolumeType> ListVolumeTypes(string region = null)
+        public IEnumerable<VolumeType> ListVolumeTypes()
         {
-            return BlockStorageProvider.ListVolumeTypes(region, Identity);
+            return BlockStorageProvider.ListVolumeTypes(this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public VolumeType GetVolumeType(string volumeId, string region = null)
+        public VolumeType GetVolumeType(string volumeId)
         {
-            return BlockStorageProvider.DescribeVolumeType(volumeId, region, Identity);
+            return BlockStorageProvider.DescribeVolumeType(volumeId, this.DefaultRegion, this.Identity);
         }
 
         #endregion
@@ -48,57 +48,57 @@
         #region "volumes"
 
         /// <inheritdoc/>
-        public IEnumerable<Volume> ListVolumes(string region = null)
+        public IEnumerable<Volume> ListVolumes()
         {
-            return BlockStorageProvider.ListVolumes(region, Identity);
+            return BlockStorageProvider.ListVolumes(this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Volume> ListVolumesDetails(string region = null)
+        public IEnumerable<Volume> ListVolumesDetails()
         {
-            return BlockStorageProvider.ListVolumesDetails(region, Identity);
+            return BlockStorageProvider.ListVolumesDetails(this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Volume GetVolume(string volumeId, string region = null)
+        public Volume GetVolume(string volumeId)
         {
-            return BlockStorageProvider.ShowVolume(volumeId, region, Identity);
+            return BlockStorageProvider.ShowVolume(volumeId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Volume CreateVolume(int size, string sourceVolumeId = null, string description = null, string name = null, string snapshotId = null, string volumeType = null, string imageRef = null, string region = null)
+        public Volume CreateVolume(int size, string sourceVolumeId = null, string description = null, string name = null, string snapshotId = null, string volumeType = null, string imageRef = null)
         {
-            return BlockStorageProvider.CreateVolume(size, sourceVolumeId, description, name, snapshotId, volumeType, imageRef, region, Identity);
+            return BlockStorageProvider.CreateVolume(size, sourceVolumeId, description, name, snapshotId, volumeType, imageRef, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteVolume(string volumeId, string region = null)
+        public bool DeleteVolume(string volumeId)
         {
-            return BlockStorageProvider.DeleteVolume(volumeId, region, Identity);
+            return BlockStorageProvider.DeleteVolume(volumeId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Volume WaitForVolumeAvailable(string volumeId, int refreshCount = 600, TimeSpan? refreshDelay = null, string region = null)
+        public Volume WaitForVolumeAvailable(string volumeId, int refreshCount = 600, TimeSpan? refreshDelay = null)
         {
-            return BlockStorageProvider.WaitForVolumeAvailable(volumeId, refreshCount, refreshDelay, region, Identity);
+            return BlockStorageProvider.WaitForVolumeAvailable(volumeId, refreshCount, refreshDelay, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool WaitForVolumeDeleted(string volumeId, int refreshCount = 360, TimeSpan? refreshDelay = null, string region = null)
+        public bool WaitForVolumeDeleted(string volumeId, int refreshCount = 360, TimeSpan? refreshDelay = null)
         {
-            return BlockStorageProvider.WaitForVolumeDeleted(volumeId, refreshCount, refreshDelay, region, Identity);
+            return BlockStorageProvider.WaitForVolumeDeleted(volumeId, refreshCount, refreshDelay, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Volume WaitForVolumeState(string volumeId, VolumeState expectedState, VolumeState[] errorStates, int refreshCount = 600, TimeSpan? refreshDelay = null, string region = null)
+        public Volume WaitForVolumeState(string volumeId, VolumeState expectedState, VolumeState[] errorStates, int refreshCount = 600, TimeSpan? refreshDelay = null)
         {
-            return BlockStorageProvider.WaitForVolumeState(volumeId, expectedState, errorStates, refreshCount, refreshDelay, region, Identity);
+            return BlockStorageProvider.WaitForVolumeState(volumeId, expectedState, errorStates, refreshCount, refreshDelay, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public VolumeUploadImage CreateGlanceImageFromVolume(string volumeId, string imageName, string diskFormat = null, string containerFormat = null, string region = null)
+        public VolumeUploadImage CreateGlanceImageFromVolume(string volumeId, string imageName, string diskFormat = null, string containerFormat = null)
         {
-            return this.BlockStorageProvider.CreateGlanceImageFromVolume(volumeId, imageName, diskFormat, containerFormat, region, Identity);
+            return this.BlockStorageProvider.CreateGlanceImageFromVolume(volumeId, imageName, diskFormat, containerFormat, this.DefaultRegion, this.Identity);
         }
 
         #endregion

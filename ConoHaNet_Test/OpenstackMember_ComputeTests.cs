@@ -165,7 +165,7 @@
         public void GetServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName); // with tenant
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             Server server = osm.GetServer(ss.Id);
             Assert.IsTrue(server.Id == ss.Id);
             Assert.IsTrue(osm.DeleteServer(ss.Id));
@@ -258,7 +258,7 @@
         public void DeleteServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 bool b = osm.DeleteServer(ss.Id);
@@ -281,7 +281,7 @@
         public void StartServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             Server server = osm.GetServer(ss.Id);
 
             // check server status
@@ -318,7 +318,7 @@
         public void RestartServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             Server server = osm.GetServer(ss.Id);
 
             // check server status
@@ -340,7 +340,7 @@
         public void StopServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             Server server = osm.GetServer(ss.Id);
 
             // check server status
@@ -385,7 +385,7 @@
 
             try
             {
-                var rebuiltServer = os.RebuildServer(s.Id, s.Name, s.Image.Id, s.Flavor.Id, "newPassword");
+                var rebuiltServer = os.RebuildServer(s.Id, s.Image.Id, "newPassword");
                 Assert.IsNotNull(rebuiltServer);
                 Trace.WriteLine(string.Format("server rebuilt : {0}", DateTime.Now));
 
@@ -411,11 +411,11 @@
         public void RebuildServerTest_ServerId_Invalid()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             Server server = osm.GetServer(ss.Id);
 
             // expect ItemNotFoundException
-            Server rebuiltserver = osm.RebuildServer(InvalidId, TesterName, server.Image.Id, server.Flavor.Id, "newPassword");
+            Server rebuiltserver = osm.RebuildServer(InvalidId, server.Image.Id, "newPassword");
         }
 
         [TestMethod(), Ignore]
@@ -427,7 +427,7 @@
             Server s = os.GetServer(ss.Id);
 
             // expect BadServiceRequestException
-            Server rebuiltserver = os.RebuildServer(s.Id, TesterName, InvalidId, s.Flavor.Id, "newPassword");
+            Server rebuiltserver = os.RebuildServer(s.Id, InvalidId, "newPassword");
         }
 
         [TestMethod(), Ignore]
@@ -439,7 +439,7 @@
 
             try
             {
-                Server rebuiltserver = os.RebuildServer(s.Id, TesterName, s.Image.Id, InvalidId, "newPassword");
+                Server rebuiltserver = os.RebuildServer(s.Id, s.Image.Id, "newPassword");
             }
             catch (ServiceConflictException sce)
             {
@@ -462,7 +462,7 @@
         public void ResizeServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             Server server = osm.GetServer(ss.Id);
             if (server != null)
             {
@@ -505,7 +505,7 @@
         public void ResizeServerTest_Resize_2Times()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -533,7 +533,7 @@
         public void ResizeServerTest_same_flavorid()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -556,7 +556,7 @@
         public void ConfirmServerResizedTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -589,7 +589,7 @@
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
             Trace.Flush();
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -611,7 +611,7 @@
         public void RevertResizeServerTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -647,7 +647,7 @@
         public void ConfirmServerResizedTest_Revert_Without_Resize()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
             if (ss != null)
             {
                 Server s = osm.GetServer(ss.Id);
@@ -669,7 +669,7 @@
         public void GetVncConsoleTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             VncConsole v = osm.GetVncConsole(ss.Id);
             Assert.IsNotNull(v);
         }
@@ -688,7 +688,7 @@
         public void ListServerSecurityGroupTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             IEnumerable<ServerSecurityGroup> groups = osm.ListServerSecurityGroups(ss.Id);
             Assert.IsNotNull(groups);
         }
@@ -891,7 +891,7 @@
         public void ListServerVolumesTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             IEnumerable<ServerVolume> servervolumes = osm.ListServerVolumes(ss.Id);
             Server server = osm.GetServer(ss.Id);
             Trace.WriteLine(string.Format("Server Status : {0}", server.Status.Name));
@@ -911,7 +911,7 @@
         public void GetServerVolumeTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             IEnumerable<ServerVolume> servervolumes = osm.ListServerVolumes(ss.Id);
             //if (s.Status.Name != "SHUTOFF")
             //    os.StopServer(s.Id);
@@ -935,7 +935,7 @@
         public void ListInterfaceAttachmentsTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             IEnumerable<InterfaceAttachment> interfaces = osm.ListInterfaceAttachments(ss.Id);
             Assert.IsNotNull(interfaces);
@@ -954,7 +954,7 @@
         public void GetInterfaceAttachmentTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             IEnumerable<InterfaceAttachment> interfaces = osm.ListInterfaceAttachments(ss.Id);
             Assert.IsNotNull(interfaces);
@@ -980,7 +980,7 @@
         public void GetInterfaceAttachmentTest_Get_PortId_Not_Exist()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             InterfaceAttachment i = osm.GetInterfaceAttachment(ss.Id, InvalidId);
         }
@@ -989,7 +989,7 @@
         public void AddInterfaceAttachmentTest()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             Server server = osm.GetServer(ss.Id);
             Trace.WriteLine(string.Format("s.Status : {0}", server.Status));
             Trace.WriteLine(string.Format("s.VMState : {0}", server.VMState));
@@ -1024,7 +1024,7 @@
         public void AddInterfaceAttachmentTest_PortId_Invalid()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             // expect BadServiceRequestException
             InterfaceAttachment i = osm.AddInterfaceAttachment(ss.Id, InvalidId);
@@ -1034,7 +1034,7 @@
         public void AddInterfaceAttachmentTest_2Times_Sequencely()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
 
             if (ss != null)
             {
@@ -1072,7 +1072,7 @@
         public void DeleteInterfaceAttachmentTest_InvalidId()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.ShutOff);
 
             bool b = osm.DeleteInterfaceAttachment(ss.Id, InvalidId);
             // 成功が返ります。（202 Accepted）
@@ -1082,7 +1082,7 @@
         public void DeleteInterfaceAttachmentTest_2Times_Sequencely()
         {
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             string attachmentId = GetInterfaceAttachmentIdByTesterName();
 
             bool b = osm.DeleteInterfaceAttachment(ss.Id, attachmentId);

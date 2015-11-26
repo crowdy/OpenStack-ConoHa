@@ -29,51 +29,51 @@
         #region Services
 
         /// <inheritdoc/>
-        public DbService CreateDbService(string serviceName, string region = null)
+        public DbService CreateDbService(string serviceName)
         {
-            return DatabaseProvider.CreateDbService(serviceName, region, Identity);
+            return DatabaseProvider.CreateDbService(serviceName, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<DbService> ListDbServices(int? lineCount = null, int? pageNo = null, string sortKey = null, string sortType = null, string region = null)
+        public IEnumerable<DbService> ListDbServices(int? lineCount = null, int? pageNo = null, string sortKey = null, string sortType = null)
         {
-            return DatabaseProvider.ListDbServices(lineCount, pageNo, sortKey, sortType, region, Identity);
+            return DatabaseProvider.ListDbServices(lineCount, pageNo, sortKey, sortType, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbService GetDbService(string serviceId, string region = null)
+        public DbService GetDbService(string serviceId)
         {
-            return DatabaseProvider.GetDbService(serviceId, region, Identity);
+            return DatabaseProvider.GetDbService(serviceId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbService UpdateDbService(string serviceId, string serviceName, string region = null)
+        public DbService UpdateDbService(string serviceId, string serviceName)
         {
-            return DatabaseProvider.UpdateDbService(serviceId, serviceName, region, Identity);
+            return DatabaseProvider.UpdateDbService(serviceId, serviceName, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteDbService(string serviceId, string region = null)
+        public bool DeleteDbService(string serviceId)
         {
-            return DatabaseProvider.DeleteDbService(serviceId, region, Identity);
+            return DatabaseProvider.DeleteDbService(serviceId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbServiceQuota GetDbServiceQuota(string serviceId, string region = null)
+        public DbServiceQuota GetDbServiceQuota(string serviceId)
         {
-            return DatabaseProvider.GetDbServiceQuota(serviceId, region, Identity);
+            return DatabaseProvider.GetDbServiceQuota(serviceId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbServiceQuota UpdateDbServiceQuota(string serviceId, int quota, string region = null)
+        public DbServiceQuota UpdateDbServiceQuota(string serviceId, int quota)
         {
-            return DatabaseProvider.UpdateDbServiceQuota(serviceId, quota, region, Identity);
+            return DatabaseProvider.UpdateDbServiceQuota(serviceId, quota, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool SetDbServiceBackup(string serviceId, bool enabled, string region = null)
+        public bool SetDbServiceBackup(string serviceId, bool enabled)
         {
-            return DatabaseProvider.SetDbServiceBackup(serviceId, enabled, region, Identity);
+            return DatabaseProvider.SetDbServiceBackup(serviceId, enabled, this.DefaultRegion, this.Identity);
         }
 
         #endregion
@@ -81,33 +81,33 @@
         #region Databases
 
         /// <inheritdoc/>
-        public Database CreateDatabase(string serviceId, string dbName, string type = null, string charset = null, string memo = null, string region = null)
+        public Database CreateDatabase(string serviceId, string dbName, string type = null, string charset = null, string memo = null)
         {
-            return DatabaseProvider.CreateDatabase(serviceId, dbName, type, charset, memo, region, Identity);
+            return DatabaseProvider.CreateDatabase(serviceId, dbName, type, charset, memo, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Database> ListDatabases(string serviceId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null, string region = null)
+        public IEnumerable<Database> ListDatabases(string serviceId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null)
         {
-            return DatabaseProvider.ListDatabases(serviceId, offset, limit, sortKey, sortType, region, Identity);
+            return DatabaseProvider.ListDatabases(serviceId, offset, limit, sortKey, sortType, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Database GetDatabase(string databaseId, string region = null)
+        public Database GetDatabase(string databaseId)
         {
-            return DatabaseProvider.GetDatabase(databaseId, region, Identity);
+            return DatabaseProvider.GetDatabase(databaseId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Database UpdateDatabase(string databaseId, string memo = null, string region = null)
+        public Database UpdateDatabase(string databaseId, string memo = null)
         {
-            return DatabaseProvider.UpdateDatabase(databaseId, memo, region, Identity);
+            return DatabaseProvider.UpdateDatabase(databaseId, memo, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteDatabase(string databaseId, string region = null)
+        public bool DeleteDatabase(string databaseId)
         {
-            return DatabaseProvider.DeleteDatabase(databaseId, region, Identity);
+            return DatabaseProvider.DeleteDatabase(databaseId, this.DefaultRegion, this.Identity);
         }
 
         #endregion
@@ -115,21 +115,21 @@
         #region Grant
 
         /// <inheritdoc/>
-        public DbGrant CreateDbGrant(string databaseId, string userId, string region = null)
+        public DbGrant CreateDbGrant(string databaseId, string userId)
         {
-            return DatabaseProvider.CreateDbGrant(databaseId, userId, region, Identity);
+            return DatabaseProvider.CreateDbGrant(databaseId, userId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<DbGrant> ListDbGrant(string databaseId, int? lineCount = null, int? pageNo = null, string sortKey = null, string sortType = null, string region = null)
+        public IEnumerable<DbGrant> ListDbGrant(string databaseId, int? lineCount = null, int? pageNo = null, string sortKey = null, string sortType = null)
         {
-            return DatabaseProvider.ListDbGrant(databaseId, lineCount, pageNo, sortKey, sortType, region, Identity);
+            return DatabaseProvider.ListDbGrant(databaseId, lineCount, pageNo, sortKey, sortType, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteDbGrant(string databaseId, string userId, string region = null)
+        public bool DeleteDbGrant(string databaseId, string userId)
         {
-            return DatabaseProvider.DeleteDbGrant(databaseId, userId, region, Identity);
+            return DatabaseProvider.DeleteDbGrant(databaseId, userId, this.DefaultRegion, this.Identity);
         }
 
         #endregion
@@ -138,15 +138,15 @@
         #region Backups
 
         /// <inheritdoc/>
-        public IEnumerable<DbBackup> ListDbBackups(string databaseId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null, string region = null)
+        public IEnumerable<DbBackup> ListDbBackups(string databaseId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null)
         {
-            return DatabaseProvider.ListDbBackups(databaseId, offset, limit, sortKey, sortType, region, Identity);
+            return DatabaseProvider.ListDbBackups(databaseId, offset, limit, sortKey, sortType, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool RestoreDatabase(string databaseId, string backupId, string region = null)
+        public bool RestoreDatabase(string databaseId, string backupId)
         {
-            return DatabaseProvider.RestoreDatabase(databaseId, backupId, region, Identity);
+            return DatabaseProvider.RestoreDatabase(databaseId, backupId, this.DefaultRegion, this.Identity);
         }
 
         #endregion
@@ -154,33 +154,33 @@
         #region Users
 
         /// <inheritdoc/>
-        public DbUser CreateDbUser(string serviceId, string username, string password, string hostname, string memo = null, string region = null)
+        public DbUser CreateDbUser(string serviceId, string username, string password, string hostname, string memo = null)
         {
-            return DatabaseProvider.CreateDbUser(serviceId, username, password, hostname, memo, region, Identity);
+            return DatabaseProvider.CreateDbUser(serviceId, username, password, hostname, memo, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<DbUser> ListDbUsers(string serviceId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null, string region = null)
+        public IEnumerable<DbUser> ListDbUsers(string serviceId, int? offset = null, int? limit = null, string sortKey = null, string sortType = null)
         {
-            return DatabaseProvider.ListDbUsers(serviceId, offset, limit, sortKey, sortType, region, Identity);
+            return DatabaseProvider.ListDbUsers(serviceId, offset, limit, sortKey, sortType, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbUser GetDbUser(string userId, string region = null)
+        public DbUser GetDbUser(string userId)
         {
-            return DatabaseProvider.GetDbUser(userId, region, Identity);
+            return DatabaseProvider.GetDbUser(userId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public DbUser UpdateDbUser(string userId, string password = null, string memo = null, string region = null)
+        public DbUser UpdateDbUser(string userId, string password = null, string memo = null)
         {
-            return DatabaseProvider.UpdateDbUser(userId, password, memo, region, Identity);
+            return DatabaseProvider.UpdateDbUser(userId, password, memo, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteDbUser(string userId, string region = null)
+        public bool DeleteDbUser(string userId)
         {
-            return DatabaseProvider.DeleteDbUser(userId, region, Identity);
+            return DatabaseProvider.DeleteDbUser(userId, this.DefaultRegion, this.Identity);
         }
 
         #endregion

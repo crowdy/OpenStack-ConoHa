@@ -24,7 +24,7 @@ namespace ConoHaWebApplication
             IEnumerable<CloudImage> images = null;
             try
             {
-                images = osm.ListGlanceImages(region: Region);
+                images = osm.ListGlanceImages();
                 if (images.Count() == 0)
                 {
                     ltSummary.Text = "no Image.";
@@ -41,7 +41,7 @@ namespace ConoHaWebApplication
                     foreach (var i in images.Where(i => i.Visibility == "private"))
                     {
                         writer.Write("===================================\n");
-                        var image = osm.GetGlanceImage(i.Id, Region);
+                        var image = osm.GetGlanceImage(i.Id);
                         serializer.Serialize(writer, image);
 
                         var extensiondata = image.ExtensionData;

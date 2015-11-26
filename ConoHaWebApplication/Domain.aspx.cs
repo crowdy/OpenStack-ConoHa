@@ -23,7 +23,7 @@ namespace ConoHaWebApplication
             IEnumerable<Domain> domains = null;
             try
             {
-                domains = osm.ListDomains("tyo1");
+                domains = osm.ListDomains();
                 if (domains.Count() == 0)
                 {
                     ltSummary.Text = "no domain service.";

@@ -24,7 +24,7 @@ namespace ConoHaWebApplication
             IEnumerable<Volume> volumes = null;
             try
             {
-                volumes = osm.ListVolumes(region: Region);
+                volumes = osm.ListVolumes();
                 if (volumes.Count() == 0)
                 {
                     ltSummary.Text = "no volume.";
@@ -36,7 +36,7 @@ namespace ConoHaWebApplication
                     foreach (var v in volumes)
                     {
                         writer.Write("===================================\n");
-                        var volume = osm.GetVolume(v.Id, Region);
+                        var volume = osm.GetVolume(v.Id);
                         serializer.Serialize(writer, volume);
 
                         var extensiondata = volume.ExtensionData;

@@ -21,12 +21,12 @@ namespace ConoHaWebApplication
             var writer = new StringWriter();
 
             // Additional Ip subnets
-            var addSubnets = osm.ListSubnets(Region)
+            var addSubnets = osm.ListSubnets()
                 .Where<Subnet>(s => s.IpVersion == 4 && s.Name.StartsWith("add"));
             foreach (var s in addSubnets)
             {
                 writer.Write("===================================\n");
-                var subnet = osm.GetSubnet(s.Id, Region);
+                var subnet = osm.GetSubnet(s.Id);
                 serializer.Serialize(writer, subnet);
             }
 
@@ -34,13 +34,13 @@ namespace ConoHaWebApplication
             writer.GetStringBuilder().Clear();
 
             // Local Network subnets
-            var localSubnets = osm.ListSubnets(Region)
+            var localSubnets = osm.ListSubnets()
                 .Where<Subnet>(s => s.IpVersion == 4 && s.Name.StartsWith("local-"));
 
             foreach (var s in localSubnets)
             {
                 writer.Write("===================================\n");
-                var subnet = osm.GetSubnet(s.Id, Region);
+                var subnet = osm.GetSubnet(s.Id);
                 serializer.Serialize(writer, subnet);
             }
 
@@ -48,11 +48,11 @@ namespace ConoHaWebApplication
             writer.GetStringBuilder().Clear();
 
             // Ports
-            var ports = osm.ListPorts(Region);
+            var ports = osm.ListPorts();
             foreach (var p in ports)
             {
                 writer.Write("===================================\n");
-                var subnet = osm.GetPort(p.Id, Region);
+                var subnet = osm.GetPort(p.Id);
                 serializer.Serialize(writer, subnet);
             }
 
@@ -60,11 +60,11 @@ namespace ConoHaWebApplication
             writer.GetStringBuilder().Clear();
 
             // Security Groups
-            var groups = osm.ListNetworkSecurityGroups(Region);
+            var groups = osm.ListNetworkSecurityGroups();
             foreach (var g in groups)
             {
                 writer.Write("===================================\n");
-                var group = osm.GetNetworkSecurityGroup(g.Id, Region);
+                var group = osm.GetNetworkSecurityGroup(g.Id);
                 serializer.Serialize(writer, group);
             }
 

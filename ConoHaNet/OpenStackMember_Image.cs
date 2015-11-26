@@ -31,57 +31,57 @@
         #region "images"
 
         /// <inheritdoc/>
-        public IEnumerable<CloudImage> ListGlanceImages(int? limit = null, string marker = null, string name = null, string visibility = null, string memberStatus = null, string owner = null, string status = null, int? sizeMin = null, int? sizeMax = null, string sortKey = null, string sortDir = null, string tag = null, string region = null)
+        public IEnumerable<CloudImage> ListGlanceImages(int? limit = null, string marker = null, string name = null, string visibility = null, string memberStatus = null, string owner = null, string status = null, int? sizeMin = null, int? sizeMax = null, string sortKey = null, string sortDir = null, string tag = null)
         {
-            return ImagesProvider.ListGlanceImages(limit, marker, name, visibility, memberStatus, owner, status, sizeMin, sizeMax, sortKey, sortDir, tag, region, Identity);
+            return ImagesProvider.ListGlanceImages(limit, marker, name, visibility, memberStatus, owner, status, sizeMin, sizeMax, sortKey, sortDir, tag, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public CloudImage GetGlanceImage(string imageId, string region = null)
+        public CloudImage GetGlanceImage(string imageId)
         {
-            return ImagesProvider.GetGlanceImage(imageId, region, Identity);
+            return ImagesProvider.GetGlanceImage(imageId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool DeleteGlanceImage(string imageId, string region = null)
+        public bool DeleteGlanceImage(string imageId)
         {
-            return ImagesProvider.DeleteGlanceImage(imageId, region, Identity);
+            return ImagesProvider.DeleteGlanceImage(imageId, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public Dictionary<string, string> SetImageQuota(string quota, string region = null)
+        public Dictionary<string, string> SetImageQuota(string quota)
         {
-            return ImagesProvider.SetImageQuota(quota, region, Identity);
+            return ImagesProvider.SetImageQuota(quota, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public long GetImageAmount(string region = null)
+        public long GetImageAmount()
         {
-            return this.ImagesProvider.GetImageAmount(region, Identity);
+            return this.ImagesProvider.GetImageAmount(this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool SetWebShare(string imageId, bool sharing, string region = null)
+        public bool SetWebShare(string imageId, bool sharing)
         {
-            return ImagesProvider.SetWebShare(imageId, sharing, region, Identity);
+            return ImagesProvider.SetWebShare(imageId, sharing, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public bool ImportImage(string name, string importFromUrl, string region = null)
+        public bool ImportImage(string name, string importFromUrl)
         {
-            return ImagesProvider.ImportImage(name, importFromUrl, region, Identity);
+            return ImagesProvider.ImportImage(name, importFromUrl, this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public IEnumerable<CloudImageTask> ListCloudImageTasks(string region = null)
+        public IEnumerable<CloudImageTask> ListCloudImageTasks()
         {
-            return ImagesProvider.ListCloudImageTasks(region, Identity);
+            return ImagesProvider.ListCloudImageTasks(this.DefaultRegion, this.Identity);
         }
 
         /// <inheritdoc/>
-        public CloudImageTaskDetail GetCloudImageTask(string taskId, string region = null)
+        public CloudImageTaskDetail GetCloudImageTask(string taskId)
         {
-            return ImagesProvider.GetCloudImageTask(taskId, region, Identity);
+            return ImagesProvider.GetCloudImageTask(taskId, this.DefaultRegion, this.Identity);
         }
 
         #endregion

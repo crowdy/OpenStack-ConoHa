@@ -26,7 +26,7 @@ namespace ConoHaWebApplication
             IEnumerable<DbService> dbServices = null;
             try
             {
-                dbServices = osm.ListDbServices(region: Region);
+                dbServices = osm.ListDbServices();
                 if (dbServices.Count() == 0)
                 {
                     ltSummary.Text = "no db service.";
@@ -58,11 +58,11 @@ namespace ConoHaWebApplication
             IEnumerable<Database> databases = null;
             try
             {
-                databases = osm.ListDatabases(region: Region);
+                databases = osm.ListDatabases();
                 foreach (var db in databases)
                 {
                     writer.Write("===================================\n");
-                    var database = osm.GetDatabase(db.Id, Region);
+                    var database = osm.GetDatabase(db.Id);
                     serializer.Serialize(writer, database);
                 }
                 ltDatabases.Text = writer.ToString();

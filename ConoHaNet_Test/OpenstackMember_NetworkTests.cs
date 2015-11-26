@@ -703,7 +703,7 @@
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
 
             // get server
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             // get ipv4
             ServerAddresses addresses = ss.GetDetails().ListAddresses();
@@ -744,7 +744,7 @@
             var osm = new OpenStackMember(UserName, Password, TenantName, TenantId);
 
             // get server
-            SimpleServer ss = osm.ListServers(region: "tyo1").FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            SimpleServer ss = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
 
             // get ipv4, sometimes server does not have network interface.
             ServerAddresses addresses = ss.GetDetails().ListAddresses();

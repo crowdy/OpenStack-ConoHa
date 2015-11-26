@@ -22,7 +22,7 @@ namespace ConoHaWebApplication
             IEnumerable<MailService> mailServices = null;
             try
             {
-                mailServices = osm.ListMailServices(region: Region);
+                mailServices = osm.ListMailServices();
                 if (mailServices.Count() == 0)
                 {
                     ltSummary.Text = "no mail service.";

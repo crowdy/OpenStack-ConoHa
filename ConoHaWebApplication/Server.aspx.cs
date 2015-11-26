@@ -24,7 +24,7 @@ namespace ConoHaWebApplication
             IEnumerable<SimpleServer> servers = null;
             try
             {
-                servers = osm.ListServers(region: Region);
+                servers = osm.ListServers();
                 if (servers.Count() == 0)
                 {
                     ltSummary.Text = "no server.";
@@ -36,7 +36,7 @@ namespace ConoHaWebApplication
                     foreach (var s in servers)
                     {
                         writer.Write("===================================\n");
-                        var server = osm.GetServer(s.Id, Region);
+                        var server = osm.GetServer(s.Id);
                         serializer.Serialize(writer, server, server.GetType());
 
                         var extensiondata = server.ExtensionData;

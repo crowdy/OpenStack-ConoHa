@@ -26,7 +26,7 @@ namespace ConsoleApplication1
                bLazyProviderSetting: false
                );
 
-            var activeServer = osm.ListServers(region: region).FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
+            var activeServer = osm.ListServers().FirstOrDefault(s => s.GetDetails().Status == ServerState.Active);
             if (activeServer != null)
             {
                 Console.WriteLine(String.Format("{0} is active.", activeServer.Id));
