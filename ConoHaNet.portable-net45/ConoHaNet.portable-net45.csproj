@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E882DFDC-AB55-42F5-918E-901F87B23310}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConoHaNet.portable_net45</RootNamespace>
+    <AssemblyName>ConoHaNet.portable-net45</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PORTABLE;NET45;NET45PLUS;NET40PLUS;NET35PLUS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="OpenStack\Net\namespace OpenStack.Net" />
+    <None Include="packages.ConoHaNet.portable-net45.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConoHa\Security\Authentication\NamespaceDoc.cs" />
+    <Compile Include="ConoHa\Security\Authentication\RackspaceAuthentication.cs" />
+    <Compile Include="ConoHa\Security\Authentication\RackspaceAuthenticationService.cs" />
+    <Compile Include="ConoHa\Services\AccountService\AccountServiceClient.cs" />
+    <Compile Include="ConoHa\Services\AccountService\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\AccountService\BillingInvoice.cs" />
+    <Compile Include="ConoHa\Services\AccountService\IAccountService.cs" />
+    <Compile Include="ConoHa\Services\AccountService\Notification.cs" />
+    <Compile Include="ConoHa\Services\AccountService\OrderItem.cs" />
+    <Compile Include="ConoHa\Services\AccountService\Payment.cs" />
+    <Compile Include="ConoHa\Services\AccountService\ProductBase.cs" />
+    <Compile Include="ConoHa\Services\AccountService\Products.cs" />
+    <Compile Include="ConoHa\Services\AccountService\SimpleOrderItem.cs" />
+    <Compile Include="ConoHa\Services\AccountService\SimplePayment.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\BlockStorageClient.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\IBlockStorageService.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\Metadata.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\Snapshot.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\SnapshotState.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\Volume.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\VolumeImages.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\VolumeState.cs" />
+    <Compile Include="ConoHa\Services\BlockStorage\VolumeType.cs" />
+    <Compile Include="ConoHa\Services\Compute\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\Compute\BackupService.cs" />
+    <Compile Include="ConoHa\Services\Compute\ComputeClient.cs" />
+    <Compile Include="ConoHa\Services\Compute\DiskConfiguration.cs" />
+    <Compile Include="ConoHa\Services\Compute\Flavor.cs" />
+    <Compile Include="ConoHa\Services\Compute\IComputeService.cs" />
+    <Compile Include="ConoHa\Services\Compute\IPAddressDetailsConverter.cs" />
+    <Compile Include="ConoHa\Services\Compute\IPAddressList.cs" />
+    <Compile Include="ConoHa\Services\Compute\IPAddressSimpleConverter.cs" />
+    <Compile Include="ConoHa\Services\Compute\PowerState.cs" />
+    <Compile Include="ConoHa\Services\Compute\Server.cs" />
+    <Compile Include="ConoHa\Services\Compute\ServerAddresses.cs" />
+    <Compile Include="ConoHa\Services\Compute\ServerBase.cs" />
+    <Compile Include="ConoHa\Services\Compute\ServerState.cs" />
+    <Compile Include="ConoHa\Services\Compute\ServerVolume.cs" />
+    <Compile Include="ConoHa\Services\Compute\SimpleServer.cs" />
+    <Compile Include="ConoHa\Services\Compute\SimpleServerImage.cs" />
+    <Compile Include="ConoHa\Services\Compute\TaskState.cs" />
+    <Compile Include="ConoHa\Services\Compute\VirtualInterface.cs" />
+    <Compile Include="ConoHa\Services\Compute\VirtualInterfaces.cs" />
+    <Compile Include="ConoHa\Services\Compute\VirtualMachineState.cs" />
+    <Compile Include="ConoHa\Services\Database\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\Database\Database.cs" />
+    <Compile Include="ConoHa\Services\Database\DatabaseClient.cs" />
+    <Compile Include="ConoHa\Services\Database\DatabaseServiceVersion.cs" />
+    <Compile Include="ConoHa\Services\Database\DbBackup.cs" />
+    <Compile Include="ConoHa\Services\Database\DbGrant.cs" />
+    <Compile Include="ConoHa\Services\Database\DbQuota.cs" />
+    <Compile Include="ConoHa\Services\Database\DbService.cs" />
+    <Compile Include="ConoHa\Services\Database\DbUser.cs" />
+    <Compile Include="ConoHa\Services\Database\IDatabaseService.cs" />
+    <Compile Include="ConoHa\Services\Dns\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\Dns\DnsClient.cs" />
+    <Compile Include="ConoHa\Services\Dns\DnsRecord.cs" />
+    <Compile Include="ConoHa\Services\Dns\DnsServer.cs" />
+    <Compile Include="ConoHa\Services\Dns\DnsServiceVersion.cs" />
+    <Compile Include="ConoHa\Services\Dns\Domain.cs" />
+    <Compile Include="ConoHa\Services\Dns\IDnsService.cs" />
+    <Compile Include="ConoHa\Services\Dns\Zone.cs" />
+    <Compile Include="ConoHa\Services\File\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\File\Container.cs" />
+    <Compile Include="ConoHa\Services\File\ContainerCDN.cs" />
+    <Compile Include="ConoHa\Services\File\ContainerObject.cs" />
+    <Compile Include="ConoHa\Services\File\FileClient.cs" />
+    <Compile Include="ConoHa\Services\File\IFileService.cs" />
+    <Compile Include="ConoHa\Services\File\ObjectStore.cs" />
+    <Compile Include="ConoHa\Services\Glance\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\Glance\CloudImage.cs" />
+    <Compile Include="ConoHa\Services\Glance\CloudImageMember.cs" />
+    <Compile Include="ConoHa\Services\Glance\CloudImageTask.cs" />
+    <Compile Include="ConoHa\Services\Glance\CommonlyUsedImage.cs" />
+    <Compile Include="ConoHa\Services\Glance\IGlanceService.cs" />
+    <Compile Include="ConoHa\Services\Glance\GlanceClient.cs" />
+    <Compile Include="ConoHa\Services\Identity\V2\DefaultRegionExtensions.cs" />
+    <Compile Include="ConoHa\Services\Identity\V2\NamespaceDoc.cs" />
+    <Compile Include="ConoHa\Services\Identity\V2\ConoHaIdentityClient.cs" />
+    <Compile Include="ConoHa\Services\MailService\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\MailService\EmailFilter.cs" />
+    <Compile Include="ConoHa\Services\MailService\EmailForwarding.cs" />
+    <Compile Include="ConoHa\Services\MailService\EmailWebHook.cs" />
+    <Compile Include="ConoHa\Services\MailService\IMailService.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailAddress.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailBoxQuota.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailDomain.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailMessage.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailService.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailServiceClient.cs" />
+    <Compile Include="ConoHa\Services\MailService\MailServiceVersion.cs" />
+    <Compile Include="ConoHa\Services\Network\ApiCalls.cs" />
+    <Compile Include="ConoHa\Services\Network\CloudNetwork.cs" />
+    <Compile Include="ConoHa\Services\Network\NetworkClient.cs" />
+    <Compile Include="ConoHa\Services\Network\INetworkService.cs" />
+    <Compile Include="ConoHa\Services\Network\PortBlocks.cs" />
+    <Compile Include="OpenStack\Collections\ArrayExtensions.cs" />
+    <Compile Include="OpenStack\Collections\BasicReadOnlyCollectionPage`1.cs" />
+    <Compile Include="OpenStack\Collections\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Collections\ReadOnlyCollectionPageExtensions.cs" />
+    <Compile Include="OpenStack\Collections\ReadOnlyCollectionPage`1.cs" />
+    <Compile Include="OpenStack\IO\DelegatingStream.cs" />
+    <Compile Include="OpenStack\IO\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\IO\ProgressStream.cs" />
+    <Compile Include="OpenStack\Net\AddressFamily.cs" />
+    <Compile Include="OpenStack\Net\CustomHttpApiCall`1.cs" />
+    <Compile Include="OpenStack\Net\DelegatingHttpApiCall`1.cs" />
+    <Compile Include="OpenStack\Net\DelegatingHttpApiCall`2.cs" />
+    <Compile Include="OpenStack\Net\HttpApiCall.cs" />
+    <Compile Include="OpenStack\Net\HttpApiCallExtensions.cs" />
+    <Compile Include="OpenStack\Net\HttpApiCallFactory.cs" />
+    <Compile Include="OpenStack\Net\HttpApiCall`1.cs" />
+    <Compile Include="OpenStack\Net\HttpApiRequestExtensions.cs" />
+    <Compile Include="OpenStack\Net\HttpRequestEventArgs.cs" />
+    <Compile Include="OpenStack\Net\HttpResponseEventArgs.cs" />
+    <Compile Include="OpenStack\Net\HttpWebException.cs" />
+    <Compile Include="OpenStack\Net\IHttpApiCallFactory.cs" />
+    <Compile Include="OpenStack\Net\IHttpApiCall`1.cs" />
+    <Compile Include="OpenStack\Net\IHttpApiRequest.cs" />
+    <Compile Include="OpenStack\Net\IPAddress.cs" />
+    <Compile Include="OpenStack\Net\JsonHttpApiCall`1.cs" />
+    <Compile Include="OpenStack\Net\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Net\StreamingHttpApiCall.cs" />
+    <Compile Include="OpenStack\Net\TransformHttpApiCall`2.cs" />
+    <Compile Include="OpenStack\Net\UriExtensions.cs" />
+    <Compile Include="OpenStack\Net\UriPart.cs" />
+    <Compile Include="OpenStack\Net\UriUtility.cs" />
+    <Compile Include="OpenStack\ObjectModel\Converters\AddressFamilySimpleConverter.cs" />
+    <Compile Include="OpenStack\ObjectModel\Converters\HttpMethodConverter.cs" />
+    <Compile Include="OpenStack\ObjectModel\Converters\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\ObjectModel\Converters\SimpleStringJsonConverter`1.cs" />
+    <Compile Include="OpenStack\ObjectModel\ExtensibleEnum`1.cs" />
+    <Compile Include="OpenStack\ObjectModel\ExtensibleJsonObject.cs" />
+    <Compile Include="OpenStack\ObjectModel\ExtensibleJsonObjectExtensions.cs" />
+    <Compile Include="OpenStack\ObjectModel\JsonHome\AuthenticationRequirement.cs" />
+    <Compile Include="OpenStack\ObjectModel\JsonHome\HomeDocument.cs" />
+    <Compile Include="OpenStack\ObjectModel\JsonHome\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\ObjectModel\JsonHome\ResourceHints.cs" />
+    <Compile Include="OpenStack\ObjectModel\JsonHome\ResourceObject.cs" />
+    <Compile Include="OpenStack\ObjectModel\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\ObjectModel\ResourceIdentifier`1.cs" />
+    <Compile Include="OpenStack\Security\Authentication\DelegatingPartialAuthenticationService.cs" />
+    <Compile Include="OpenStack\Security\Authentication\IAuthenticationService.cs" />
+    <Compile Include="OpenStack\Security\Authentication\IdentityV2AuthenticationService.cs" />
+    <Compile Include="OpenStack\Security\Authentication\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Security\Authentication\PassThroughAuthenticationService.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\AddFlavorApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\AddOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\AddServiceApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ContentDeliveryClient.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ContentDeliveryServiceExtensionDefinition`1.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ContentDeliveryServiceExtensions.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\CopyOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\Flavor.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\FlavorData.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\FlavorId.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\FlavorProvider.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\FlavorProviderName.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\GetFlavorApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\GetHealthApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\GetHomeApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\GetServiceApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\GetSubsystemHealthApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\IContentDeliveryService.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\JsonDiffer.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\JsonPointer.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ListFlavorsApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ListServicesApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ListServicesExtensions.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\MoveOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\Operation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\PatchDocument.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\PingApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\RemoveAssetApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\RemoveFlavorApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\RemoveOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\RemoveServiceApiCall.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ReplaceOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\Service.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceCache.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceCacheRule.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceData.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceDomain.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceError.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceId.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceOrigin.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceOriginRule.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceProtocol.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceRestriction.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceRestrictionRule.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\ServiceStatus.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\SubsystemId.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\TestOperation.cs" />
+    <Compile Include="OpenStack\Services\ContentDelivery\V1\UpdateServiceApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\ApiStatus.cs" />
+    <Compile Include="OpenStack\Services\Identity\ApiVersion.cs" />
+    <Compile Include="OpenStack\Services\Identity\ApiVersionId.cs" />
+    <Compile Include="OpenStack\Services\Identity\ApiVersionResponse.cs" />
+    <Compile Include="OpenStack\Services\Identity\BaseIdentityClient.cs" />
+    <Compile Include="OpenStack\Services\Identity\BaseIdentityServiceExtensionDefinition`1.cs" />
+    <Compile Include="OpenStack\Services\Identity\BaseIdentityServiceExtensions.cs" />
+    <Compile Include="OpenStack\Services\Identity\GetApiVersionApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\IBaseIdentityService.cs" />
+    <Compile Include="OpenStack\Services\Identity\Link.cs" />
+    <Compile Include="OpenStack\Services\Identity\ListApiVersionsApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\MediaType.cs" />
+    <Compile Include="OpenStack\Services\Identity\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Services\Identity\ProjectId.cs" />
+    <Compile Include="OpenStack\Services\Identity\TokenId.cs" />
+    <Compile Include="OpenStack\Services\Identity\UserId.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Access.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\AccessResponse.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\AuthenticateApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\AuthenticationData.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\AuthenticationRequest.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Endpoint.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\EndpointId.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Extension.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ExtensionAlias.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ExtensionResponse.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\GetExtensionApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\IdentityClient.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\IdentityServiceExtensionDefinition`1.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\IdentityServiceExtensions.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\IIdentityService.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ListExtensionsApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ListExtensionsApiCallExtensions.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ListTenantsApiCall.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ListTenantsApiCallExtensions.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\PasswordCredentials.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Role.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\ServiceCatalogEntry.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Tenant.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\Token.cs" />
+    <Compile Include="OpenStack\Services\Identity\V2\User.cs" />
+    <Compile Include="OpenStack\Services\IExtensibleService`1.cs" />
+    <Compile Include="OpenStack\Services\IHttpService.cs" />
+    <Compile Include="OpenStack\Services\NamespaceDoc.cs" />
+    <Compile Include="OpenStack\Services\ServiceClient.cs" />
+    <Compile Include="OpenStack\Services\ServiceExtensionDefinition`2.cs" />
+    <Compile Include="OpenStack\Services\ServiceExtension`1.cs" />
+    <Compile Include="OpenStack\Threading\AsyncCompletionOption.cs" />
+    <Compile Include="OpenStack\Threading\BackoffPolicy.cs" />
+    <Compile Include="OpenStack\Threading\IBackoffPolicy.cs" />
+    <Compile Include="OpenStack\Threading\NamespaceDoc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Collections\Concurrent\CollectionDebuggerView`2.cs" />
+    <Compile Include="System\Collections\Concurrent\ConcurrentDictionary`2.cs" />
+    <Compile Include="System\Collections\Concurrent\SplitOrderedList`2.cs" />
+    <Compile Include="System\Collections\Generic\DictionaryDebugView`2.cs" />
+    <Compile Include="System\Collections\Generic\OpenStackListExtensions.cs" />
+    <Compile Include="System\NonSerializedAttribute.cs" />
+    <Compile Include="System\Runtime\Serialization\ISafeSerializationData.cs" />
+    <Compile Include="System\SerializableAttribute.cs" />
+    <Compile Include="System\Tuple.cs" />
+    <Compile Include="System\Tuples.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rackspace.Net.UriTemplate">
+      <HintPath>..\packages\Rackspace.Net.UriTemplate.1.0.0-beta003\lib\portable-net4+sl5+win+wpa81+wp8+MonoAndroid1+MonoTouch1\Rackspace.Net.UriTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="Rackspace.Threading">
+      <HintPath>..\packages\Rackspace.Threading.2.0.0-alpha001\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Rackspace.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.33-beta\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

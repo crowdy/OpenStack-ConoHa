@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenVncConsole", "Samples\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoHaWebApplication", "ConoHaWebApplication\ConoHaWebApplication.csproj", "{11F72DAF-D3B5-4E95-9C5B-D9FC7CE6CC5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoHaNet.portable-net45", "ConoHaNet.portable-net45\ConoHaNet.portable-net45.csproj", "{E882DFDC-AB55-42F5-918E-901F87B23310}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoHaNet.portable-net45_Test", "ConoHaNet.portable-net45_Test\ConoHaNet.portable-net45_Test.csproj", "{5629DC28-EE82-4E23-84AC-1B2AB62726CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{11F72DAF-D3B5-4E95-9C5B-D9FC7CE6CC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F72DAF-D3B5-4E95-9C5B-D9FC7CE6CC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F72DAF-D3B5-4E95-9C5B-D9FC7CE6CC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E882DFDC-AB55-42F5-918E-901F87B23310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E882DFDC-AB55-42F5-918E-901F87B23310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E882DFDC-AB55-42F5-918E-901F87B23310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E882DFDC-AB55-42F5-918E-901F87B23310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5629DC28-EE82-4E23-84AC-1B2AB62726CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5629DC28-EE82-4E23-84AC-1B2AB62726CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5629DC28-EE82-4E23-84AC-1B2AB62726CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5629DC28-EE82-4E23-84AC-1B2AB62726CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
