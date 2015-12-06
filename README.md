@@ -8,3 +8,6 @@ OpenStack based DotNet SDK for ConoHa
 
 # Sample Web Application
 ![sample web application](https://github.com/crowdy/OpenStack-ConoHa/blob/master/ConoHaWebApplication/Content/Images/server.png)
+
+# And I think,
+" enterprises will realize they want to run their own private clouds. once organizations start spending a few hundred thousand dollars a month on Amazon, they'll look at OpenStack."
